@@ -1,9 +1,13 @@
 import os
 import sys
+import shutil
 import traceback
 
-# ── Redirect stderr + install exception hook before anything else ────────────
+# ── Always wipe __pycache__ before importing anything else ───────────────────
+# Prevents stale bytecode from running when source files have been updated.
 _log_dir = os.path.dirname(os.path.abspath(__file__))
+shutil.rmtree(os.path.join(_log_dir, "__pycache__"), ignore_errors=True)
+
 os.chdir(_log_dir)   # ensure CWD is the project folder regardless of how Python was launched
 _stderr_log = open(os.path.join(_log_dir, "stderr.log"), "w", buffering=1)
 sys.stderr = _stderr_log
