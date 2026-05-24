@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Runtime data — excluded from repo (auto-generated on first run)
+tracks.json
+course.json
+
+# Logs
+*.log
+
+# Tile cache
+tile_cache/
+
+# OS
+.DS_Store
+Thumbs.db
